@@ -1,0 +1,78 @@
+---
+title: 'Technical Architecture'
+description: 'Under the hood, Sentio integrates smart contract logic, plugin systems, and ML models to deliver a robust, scalable platform.'
+---
+
+## Smart Wallet Abstractions
+
+<CardGroup cols={3}>
+  <Card
+    title="ERC-4337 Compatibility"
+    icon="wallet"
+  >
+    Allows for meta-transactions and custom transaction rules (like gas sponsorship).
+  </Card>
+  <Card
+    title="Agent-Specific Wallets"
+    icon="shield-halved"
+  >
+    Each agent has a dedicated wallet address, isolating risks and ensuring user-controlled budgets.
+  </Card>
+  <Card
+    title="Granular Permissions"
+    icon="key"
+  >
+    Users can define max-spend amounts, transaction frequency, or whitelisted tokens to prevent misuse.
+  </Card>
+</CardGroup>
+
+## Plugin System
+
+<CardGroup cols={3}>
+  <Card
+    title="Composable Modules"
+    icon="puzzle-piece"
+  >
+    Each plugin addresses a specific function—swapping on a DEX, pulling price data, minting NFTs, etc.
+  </Card>
+  <Card
+    title="External Oracles"
+    icon="satellite-dish"
+  >
+    Price feeds, weather data, social media APIs, chain analytics—accessible through standardized interfaces.
+  </Card>
+  <Card
+    title="Plugin Manager"
+    icon="cubes"
+  >
+    A registry that enforces version control, ensuring older plugin versions remain usable while new updates roll out.
+  </Card>
+</CardGroup>
+
+## AI & ML Integration
+
+<Steps>
+  <Step title="Language Models">
+    GPT-based or similarly advanced LLMs can parse instructions, generate code snippets, and adapt logic based on real-time data.
+  </Step>
+  <Step title="Custom ML Inferences">
+    Agents can plug into specialized models (e.g., sentiment analysis for crypto Twitter, anomaly detection for wallet transactions).
+  </Step>
+  <Step title="Data Pipeline">
+    A robust pipeline that fetches, normalizes, and caches external data before passing it to AI models for decision-making.
+  </Step>
+</Steps>
+
+## Supported Networks & Protocols
+
+<AccordionGroup>
+  <Accordion title="Blockchains" icon="link">
+    Ethereum (mainnet + L2s), Binance Smart Chain, Polygon, Solana, with ongoing expansions to others.
+  </Accordion>
+  <Accordion title="DeFi Protocols" icon="chart-line">
+    Uniswap, Aave, Curve, PancakeSwap, SushiSwap, Compound, etc.
+  </Accordion>
+  <Accordion title="Wallets & Tools" icon="toolbox">
+    MetaMask, Ledger, WalletConnect, Gnosis Safe, bridging frameworks.
+  </Accordion>
+</AccordionGroup> 

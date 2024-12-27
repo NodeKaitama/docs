@@ -1,0 +1,99 @@
+---
+title: 'Staking & Revenue Sharing'
+description: 'A model designed to align incentives for all participants in the Sentio ecosystem through token staking and fee distribution.'
+---
+
+## Overview
+
+<Note>
+  By locking up SEN tokens, stakers can earn a portion of the fees generated across the platform, including agent usage fees, subscription charges, and other revenue streams. This approach fosters a mutually beneficial environment where token holders share in Sentio's success and provide valuable support to the network's security and liquidity.
+</Note>
+
+## How Staking Works
+
+<Steps>
+  <Step title="Locking Up SEN">
+    1. Users transfer SEN tokens from their personal wallets to a staking smart contract
+    2. The contract securely holds their tokens for a chosen lock-up period
+    3. Lock-up periods can be 30 days, 90 days, or custom durations
+  </Step>
+  <Step title="Earning Platform Fees">
+    1. AI agent transactions, subscriptions, and other revenue sources contribute to a stake reward pool
+    2. Stakers receive regular distributions proportional to their staked amount and lock-up duration
+  </Step>
+  <Step title="Lock-Up & Unstaking">
+    1. Longer lock-up periods earn higher reward multipliers
+    2. After the lock-up period or unstaking request, users can withdraw tokens plus unclaimed rewards
+  </Step>
+</Steps>
+
+## Revenue Sources for Stakers
+
+<CardGroup cols={2}>
+  <Card
+    title="Transaction Fees"
+    icon="money-bill-transfer"
+  >
+    <div className="mt-2">
+      - Usage fees from agent actions
+      - Commission splits from protocol referrals
+      - Transaction execution fees
+    </div>
+  </Card>
+  <Card
+    title="Subscription Plans"
+    icon="calendar-check"
+  >
+    <div className="mt-2">
+      Portion of subscription payments from:
+      - High-value AI agents
+      - Advanced analytics services
+      - Premium features
+    </div>
+  </Card>
+</CardGroup>
+
+## Market Expansion Benefits
+
+<CardGroup cols={3}>
+  <Card
+    title="New Chains"
+    icon="link"
+  >
+    Integration with additional blockchains creates new revenue opportunities.
+  </Card>
+  <Card
+    title="New Protocols"
+    icon="plug"
+  >
+    Partnerships with DeFi and NFT protocols expand fee-generating activities.
+  </Card>
+  <Card
+    title="New Features"
+    icon="stars"
+  >
+    Premium capabilities and services contribute additional revenue to the staking pool.
+  </Card>
+</CardGroup>
+
+## Reward Distribution
+
+<AccordionGroup>
+  <Accordion title="Calculation Formula">
+    ```solidity
+    userReward = (userStake / totalStake) * rewardPool * timeMultiplier
+    ```
+    Where timeMultiplier increases with longer lock-up periods.
+  </Accordion>
+  <Accordion title="Distribution Schedule">
+    - Daily rewards from transaction fees
+    - Weekly distribution of subscription revenue
+    - Monthly bonus rewards for long-term stakers
+  </Accordion>
+  <Accordion title="Reward Multipliers">
+    - 30-day lock: 1x multiplier
+    - 90-day lock: 1.5x multiplier
+    - 180-day lock: 2x multiplier
+    - 365-day lock: 3x multiplier
+  </Accordion>
+</AccordionGroup> 

@@ -1,0 +1,102 @@
+---
+title: 'Use Cases'
+description: 'Explore the diverse applications of Sentio agents across DeFi, NFTs, and blockchain ecosystems.'
+---
+
+## DeFi Automation
+
+<CardGroup cols={2}>
+  <Card
+    title="Yield Farming"
+    icon="seedling"
+  >
+    Automate asset movement between liquidity pools and trigger rebalances when APR changes.
+  </Card>
+  <Card
+    title="Cross-Chain Arbitrage"
+    icon="arrows-left-right"
+  >
+    Identify price discrepancies across DEXs on different networks and execute atomic transactions.
+  </Card>
+</CardGroup>
+
+## NFT & Social
+
+<CardGroup cols={2}>
+  <Card
+    title="NFT Management"
+    icon="image"
+  >
+    Auto-list NFTs at specific floor prices and snipe underpriced listings across multiple chains.
+  </Card>
+  <Card
+    title="Meme Coin Sniping"
+    icon="rocket"
+  >
+    Monitor social media for crypto keywords and execute rapid trades upon detecting hype signals.
+  </Card>
+</CardGroup>
+
+## Advanced Applications
+
+<CardGroup cols={3}>
+  <Card
+    title="DAO Governance"
+    icon="building-columns"
+  >
+    Automate voting based on preferences and manage treasury operations via transparent logic.
+  </Card>
+  <Card
+    title="Flash Loans"
+    icon="bolt"
+  >
+    Identify and execute profitable flash loan opportunities with sandboxed risk management.
+  </Card>
+  <Card
+    title="Analytics"
+    icon="chart-mixed"
+  >
+    Track on-chain metrics and generate insights for better decision-making.
+  </Card>
+</CardGroup>
+
+## Implementation Examples
+
+<AccordionGroup>
+  <Accordion title="Yield Optimizer">
+    ```solidity
+    // Example agent logic
+    if (currentAPR < targetAPR) {
+        scanAlternativePools();
+        if (foundBetterPool) {
+            migratePosition();
+        }
+    }
+    ```
+  </Accordion>
+  <Accordion title="NFT Floor Sniper">
+    ```solidity
+    // Example agent logic
+    onNewListing(nft) {
+        if (nft.price < floorPrice * 0.8) {
+            if (verifyRarity(nft)) {
+                executePurchase(nft);
+            }
+        }
+    }
+    ```
+  </Accordion>
+  <Accordion title="Social Trading">
+    ```solidity
+    // Example agent logic
+    onInfluencerTweet(tweet) {
+        if (containsToken(tweet)) {
+            sentiment = analyzeSentiment(tweet);
+            if (sentiment > threshold) {
+                executeTradeStrategy();
+            }
+        }
+    }
+    ```
+  </Accordion>
+</AccordionGroup> 
