@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "OpenAPI Plant Store",
-    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
+    "title": "Sentio Agent API",
+    "description": "API for managing and interacting with Sentio's on-chain AI agents",
     "license": {
       "name": "MIT"
     },
@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "http://sandbox.mintlify.com"
+      "url": "https://api.sentio.ai"
     }
   ],
   "security": [
@@ -19,14 +19,14 @@
     }
   ],
   "paths": {
-    "/plants": {
+    "/agents": {
       "get": {
-        "description": "Returns all plants from the system that the user has access to",
+        "description": "Returns all agents that the authenticated user has access to",
         "parameters": [
           {
             "name": "limit",
-            "in": "query",
-            "description": "The maximum number of results to return",
+            "in": "query", 
+            "description": "Maximum number of agents to return",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -35,13 +35,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Plant response",
+            "description": "List of agents",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Plant"
+                    "$ref": "#/components/schemas/Agent"
                   }
                 }
               }
@@ -60,13 +60,13 @@
         }
       },
       "post": {
-        "description": "Creates a new plant in the store",
+        "description": "Creates a new agent",
         "requestBody": {
-          "description": "Plant to add to the store",
+          "description": "Agent configuration to create",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPlant"
+                "$ref": "#/components/schemas/NewAgent" 
               }
             }
           },
@@ -74,17 +74,17 @@
         },
         "responses": {
           "200": {
-            "description": "plant response",
+            "description": "Agent created successfully",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Plant"
+                  "$ref": "#/components/schemas/Agent"
                 }
               }
             }
           },
           "400": {
-            "description": "unexpected error",
+            "description": "Unexpected error",
             "content": {
               "application/json": {
                 "schema": {
@@ -96,14 +96,14 @@
         }
       }
     },
-    "/plants/{id}": {
+    "/agents/{id}": {
       "delete": {
-        "description": "Deletes a single plant based on the ID supplied",
+        "description": "Deletes an agent by ID",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "ID of plant to delete",
+            "description": "ID of agent to delete",
             "required": true,
             "schema": {
               "type": "integer",
@@ -113,11 +113,11 @@
         ],
         "responses": {
           "204": {
-            "description": "Plant deleted",
+            "description": "Agent deleted successfully",
             "content": {}
           },
           "400": {
-            "description": "unexpected error",
+            "description": "Unexpected error",
             "content": {
               "application/json": {
                 "schema": {
@@ -132,26 +132,52 @@
   },
   "components": {
     "schemas": {
-      "Plant": {
+      "Agent": {
         "required": [
-          "name"
+          "name",
+          "type"
         ],
         "type": "object",
         "properties": {
           "name": {
-            "description": "The name of the plant",
+            "description": "Name of the agent",
             "type": "string"
           },
-          "tag": {
-            "description": "Tag to specify the type",
+          "type": {
+            "description": "Type of agent (e.g. DeFi, NFT, Social)",
             "type": "string"
+          },
+          "description": {
+            "description": "Detailed description of the agent's purpose",
+            "type": "string"
+          },
+          "networks": {
+            "description": "Blockchain networks the agent operates on",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "triggers": {
+            "description": "Conditions that activate the agent",
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "actions": {
+            "description": "Actions the agent can perform",
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
           }
         }
       },
-      "NewPlant": {
+      "NewAgent": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/Plant"
+            "$ref": "#/components/schemas/Agent"
           },
           {
             "required": [
@@ -160,7 +186,7 @@
             "type": "object",
             "properties": {
               "id": {
-                "description": "Identification number of the plant",
+                "description": "Unique identifier for the agent",
                 "type": "integer",
                 "format": "int64"
               }
