@@ -48,6 +48,7 @@
       "group": "Get Started",
       "pages": [
         "introduction",
+        "tokenize-your-agent",
         "roadmap",
         "tokenomics"
       ]
@@ -55,7 +56,7 @@
     {
       "group": "Platform Features",
       "pages": [
-        "features/features",
+        "features/features-and-vision",
         "features/no-code-builder",
         "features/marketplace",
         "features/use-cases"
